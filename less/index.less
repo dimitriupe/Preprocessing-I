@@ -1,3 +1,5 @@
+// @import url (//fonts.googleapis.com/css?family=Martel+Sans);
+
 // Is this working?
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -54,6 +56,311 @@ table {
 }
 
 html, body {
-    height: 100%;
+	height: 100%;
 }
 
+/* Variables */
+
+@bg-color: white;
+@bg-color-main: whitesmoke;
+@color: #2f3136;
+@max-width: 80%;
+@font: 'Roboto', sans-serif;
+
+/* Mixins */
+
+.bg-color {
+	background-color: whitesmoke;
+}
+
+.h3-font {
+	font-size: 30px;
+	color: gray;
+	padding: 25px 0px 25px 0px;
+}
+
+.p-font {
+	color: #4d483c;
+	line-height: 30px;
+}
+
+.border {
+	border-radius: 2%;
+}
+
+/* Nesting ---> Every selector is nested inside the main container. Please refer below */
+
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 100%;
+	background-color: @bg-color;
+	color: @color;
+	font-family: @font;
+	
+	.navigation {
+		max-width: 100%;
+		margin-top: 40px;
+	}
+
+	nav {
+		display: flex;
+		justify-content: flex-end;
+		max-width: 90%;
+	}
+
+	a	{
+		text-decoration: none;
+		text-shadow: 4px 4px 4px #aaa;
+		background-color: @bg-color;
+		color: grey;
+		border-radius: 8%;
+		// box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+		transition: all 0.3s ease 0s;
+		font-size: 30px;
+		margin-left: 45px;
+	}
+
+	a:hover {
+		background-color: #b3b2c2;
+		box-shadow: 0px 15px 20px rgba(130, 129, 140, 0.4);
+		color: #fff;
+		transform: translateY(-7px);
+	}
+
+	.main, .middle, footer {
+		display: flex;
+		max-width: 100%;
+		max-height: 150%;
+		margin-top: 50px;
+		.bg-color();
+	}
+
+	.profilepic {
+		background-color: @bg-color;
+	}
+
+	.profilepic img {
+		width: 100%;
+		transform: scale(0.5);
+		border-radius: 4%;
+		border: 1px dotted black;
+		margin-top: -75px;
+	}
+
+	img:hover {
+		box-shadow: 0px 15px 20px rgba(130, 129, 140, 0.4);
+		transition: all 0.4s ease 0s;
+	}
+
+	.whoami {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		padding-left: 50px;
+		padding-right: 50px;
+		background-color: @bg-color-main;
+		.border();
+	}
+
+	.whoami:hover {
+		background-color: #b3b2c2;
+		box-shadow: 0px 15px 20px rgba(130, 129, 140, 0.4);
+		transition: all 0.5s ease 0s;
+		.border();
+	}
+
+	.main .whoami h3 {
+		.h3-font();
+	}
+
+	.main .whoami p {
+		.p-font();
+	}
+
+	.visionlast {
+		padding-bottom: 25px;
+	}
+	
+	.main .socialmedia {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		width: 25%;
+		background-color: @bg-color;
+	}
+
+	.main .socialmedia h2 {
+		text-align: center;
+		// font-style: italic;
+		font-size: 35px;
+		color: gray;
+		margin-bottom: 20px;
+	}
+
+	.icons {
+		margin-left: 30px;
+		margin-bottom: 125px;
+	}
+
+	.middle {
+		display: flex;
+		flex-direction: column;
+		max-width: 65.5%;
+		padding-left: 50px;
+		padding-right: 50px;
+		margin-left: 255px;
+		background-color: @bg-color-main;
+		.border();
+	}
+
+	.middle:hover {
+		background-color: #b3b2c2;
+		box-shadow: 0px 15px 20px rgba(130, 129, 140, 0.4);
+		transition: all 0.5s ease 0s;
+		.border();
+	}
+
+	.middle h3 {
+		.h3-font();
+	}
+
+	.middle p {
+		.p-font();
+	}
+
+	.educationlast {
+		padding-bottom: 25px;
+	}
+
+	footer {
+		display: flex;
+		justify-content: space-around;
+		background-color: @bg-color-main;
+		max-width: 66%;
+		margin-left: 250px;
+	}
+
+	footer:hover {
+		background-color: white;
+		box-shadow: 0px 15px 20px rgba(130, 129, 140, 0.4);
+		color: black;
+		transition: all 0.5s ease 0s;
+	}
+
+	.address {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.address h3 {
+		color: gray;
+		font-weight: bold;
+	}
+
+	.address address {
+		color: #4d483c;
+	}
+
+	/* Beginning of nested at rules - mobile phones @max-width 500x */
+
+	@media screen and (max-width: 500px) {
+		max-width: 500px;
+		background-color: white;
+		
+		.container {
+			display: flex;
+			width: 100%;
+
+		}
+
+		.navigation {
+			display: flex;
+			justify-content: space-around;
+		}
+
+		.navigation nav a {
+			font-size: 20px;
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+
+		.main {
+			width: 100%;
+		}
+
+		.profilepic {
+			width: 30%;
+			margin-left: 0px;
+			padding-top: 75px;
+		}
+
+		.whoami {
+			width: 75%;
+			font-size: 10px;
+			padding: 0%;
+		}
+
+		.main .whoami h3 {
+			font-size: 15px;
+			text-align: center;
+			padding-top: 24px;
+			font-weight: bold;
+			border-bottom: 1px solid gray;
+		}
+
+		.main .whoami p {
+			text-align: justify;
+		}
+
+		.main .socialmedia h2 {
+			font-size: 24px;
+			text-align: center;
+			padding-top: 30px;
+		}
+
+		.icons {
+			width: 100%;
+			padding: 0%;
+			margin-left: -20%;
+			margin-bottom: 175px;
+		}
+
+		.middle {
+			width: 55%;
+			padding: 0px;
+			font-size: 10px;
+			margin-left: 105px;
+			margin-top: 0px;
+		}
+		
+		.middle h3 {
+			font-size: 15px;
+			text-align: center;
+			// padding-top: 24px;
+			font-weight: bold;
+			border-bottom: 1px solid gray;
+		}
+
+		.middle p {
+			text-align: justify;
+		}
+
+		.skills p {
+			text-align: center;
+		}
+
+		footer {
+			width: 55%;
+			align-items: center;
+			margin-left: 104px;
+			margin-top: 10px;
+		}
+
+	}
+
+	/* End of nested at rules - mobile phones @max-width 500x */
+	
+}
