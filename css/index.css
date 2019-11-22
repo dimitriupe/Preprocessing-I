@@ -136,6 +136,22 @@ body {
 }
 /* Variables */
 /* Mixins */
+.bg-color {
+  background-color: whitesmoke;
+}
+.h3-font {
+  font-size: 30px;
+  color: gray;
+  padding: 25px 0px 25px 0px;
+}
+.p-font {
+  color: #4d483c;
+  line-height: 30px;
+}
+.border {
+  border-radius: 2%;
+}
+/* Nesting ---> Every selector is nested inside the main container. Please refer below */
 .container {
   display: flex;
   flex-direction: column;
@@ -144,17 +160,19 @@ body {
   background-color: white;
   color: #2f3136;
   font-family: 'Roboto', sans-serif;
+  /* Beginning of nested at rules - mobile phones @max-width 500x */
+  /* End of nested at rules - mobile phones @max-width 500x */
 }
-.navigation {
+.container .navigation {
   max-width: 100%;
   margin-top: 40px;
 }
-nav {
+.container nav {
   display: flex;
   justify-content: flex-end;
   max-width: 90%;
 }
-a {
+.container a {
   text-decoration: none;
   text-shadow: 4px 4px 4px #aaa;
   background-color: white;
@@ -164,54 +182,207 @@ a {
   font-size: 30px;
   margin-left: 45px;
 }
-a:hover {
+.container a:hover {
   background-color: #b3b2c2;
   box-shadow: 0px 15px 20px rgba(130, 129, 140, 0.4);
   color: #fff;
   transform: translateY(-7px);
 }
-.main,
-.middle,
-footer {
+.container .main,
+.container .middle,
+.container footer {
   display: flex;
   max-width: 100%;
   max-height: 150%;
-  margin-top: 100px;
+  margin-top: 50px;
+  background-color: whitesmoke;
 }
-.profilepic img {
+.container .profilepic {
+  background-color: white;
+}
+.container .profilepic img {
   width: 100%;
   transform: scale(0.5);
   border-radius: 4%;
   border: 1px dotted black;
   margin-top: -75px;
 }
-img:hover {
+.container img:hover {
   box-shadow: 0px 15px 20px rgba(130, 129, 140, 0.4);
   transition: all 0.4s ease 0s;
 }
-.whoami {
+.container .whoami {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   padding-left: 50px;
   padding-right: 50px;
+  background-color: whitesmoke;
+  border-radius: 2%;
 }
-.main .socialmedia {
+.container .whoami:hover {
+  background-color: #b3b2c2;
+  box-shadow: 0px 15px 20px rgba(130, 129, 140, 0.4);
+  transition: all 0.5s ease 0s;
+  border-radius: 2%;
+}
+.container .main .whoami h3 {
+  font-size: 30px;
+  color: gray;
+  padding: 25px 0px 25px 0px;
+}
+.container .main .whoami p {
+  color: #4d483c;
+  line-height: 30px;
+}
+.container .visionlast {
+  padding-bottom: 25px;
+}
+.container .main .socialmedia {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: space-between;
   width: 25%;
+  background-color: white;
 }
-.main .socialmedia h2 {
+.container .main .socialmedia h2 {
   text-align: center;
-  font-style: italic;
-  font-size: 50px;
+  font-size: 35px;
+  color: gray;
   margin-bottom: 20px;
 }
-.main .socialmedia .icons {
+.container .icons {
   margin-left: 30px;
+  margin-bottom: 125px;
 }
-.middle,
-footer {
+.container .middle {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  max-width: 65.5%;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-left: 255px;
+  background-color: whitesmoke;
+  border-radius: 2%;
+}
+.container .middle:hover {
+  background-color: #b3b2c2;
+  box-shadow: 0px 15px 20px rgba(130, 129, 140, 0.4);
+  transition: all 0.5s ease 0s;
+  border-radius: 2%;
+}
+.container .middle h3 {
+  font-size: 30px;
+  color: gray;
+  padding: 25px 0px 25px 0px;
+}
+.container .middle p {
+  color: #4d483c;
+  line-height: 30px;
+}
+.container .educationlast {
+  padding-bottom: 25px;
+}
+.container footer {
+  display: flex;
+  justify-content: space-around;
+  background-color: whitesmoke;
+  max-width: 66%;
+  margin-left: 250px;
+}
+.container footer:hover {
+  background-color: white;
+  box-shadow: 0px 15px 20px rgba(130, 129, 140, 0.4);
+  color: black;
+  transition: all 0.5s ease 0s;
+}
+.container .address {
+  display: flex;
+  flex-direction: column;
+}
+.container .address h3 {
+  color: gray;
+  font-weight: bold;
+}
+.container .address address {
+  color: #4d483c;
+}
+@media screen and (max-width: 500px) {
+  .container {
+    max-width: 500px;
+    background-color: white;
+  }
+  .container .container {
+    display: flex;
+    width: 100%;
+  }
+  .container .navigation {
+    display: flex;
+    justify-content: space-around;
+  }
+  .container .navigation nav a {
+    font-size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .container .main {
+    width: 100%;
+  }
+  .container .profilepic {
+    width: 30%;
+    margin-left: 0px;
+    padding-top: 75px;
+  }
+  .container .whoami {
+    width: 75%;
+    font-size: 10px;
+    padding: 0%;
+  }
+  .container .main .whoami h3 {
+    font-size: 15px;
+    text-align: center;
+    padding-top: 24px;
+    font-weight: bold;
+    border-bottom: 1px solid gray;
+  }
+  .container .main .whoami p {
+    text-align: justify;
+  }
+  .container .main .socialmedia h2 {
+    font-size: 24px;
+    text-align: center;
+    padding-top: 30px;
+  }
+  .container .icons {
+    width: 100%;
+    padding: 0%;
+    margin-left: -20%;
+    margin-bottom: 175px;
+  }
+  .container .middle {
+    width: 55%;
+    padding: 0px;
+    font-size: 10px;
+    margin-left: 105px;
+    margin-top: 0px;
+  }
+  .container .middle h3 {
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 1px solid gray;
+  }
+  .container .middle p {
+    text-align: justify;
+  }
+  .container .skills p {
+    text-align: center;
+  }
+  .container footer {
+    width: 55%;
+    align-items: center;
+    margin-left: 104px;
+    margin-top: 10px;
+  }
 }
