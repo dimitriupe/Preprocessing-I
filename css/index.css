@@ -135,6 +135,7 @@ body {
   height: 100%;
 }
 /* Variables */
+/* Mixins */
 .container {
   display: flex;
   flex-direction: column;
@@ -146,7 +147,6 @@ body {
 }
 .navigation {
   max-width: 100%;
-  justify-content: space-evenly;
   margin-top: 40px;
 }
 nav {
@@ -156,10 +156,10 @@ nav {
 }
 a {
   text-decoration: none;
+  text-shadow: 4px 4px 4px #aaa;
   background-color: white;
   color: grey;
   border-radius: 8%;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease 0s;
   font-size: 30px;
   margin-left: 45px;
@@ -170,25 +170,29 @@ a:hover {
   color: #fff;
   transform: translateY(-7px);
 }
-.main {
+.main,
+.middle,
+footer {
   display: flex;
   max-width: 100%;
   max-height: 150%;
   margin-top: 100px;
 }
-.profilepic {
-  max-width: 15%;
-  margin: 0px;
-  padding: 0px;
-}
 .profilepic img {
+  width: 100%;
   transform: scale(0.5);
   border-radius: 4%;
   border: 1px dotted black;
-  margin-left: 0px;
+  margin-top: -75px;
+}
+img:hover {
+  box-shadow: 0px 15px 20px rgba(130, 129, 140, 0.4);
+  transition: all 0.4s ease 0s;
 }
 .whoami {
   width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 .main .socialmedia {
   display: flex;
@@ -199,9 +203,15 @@ a:hover {
 .main .socialmedia h2 {
   text-align: center;
   font-style: italic;
-  font-weight: 20px;
+  font-size: 50px;
+  margin-bottom: 20px;
 }
 .main .socialmedia .icons {
-  margin: 35px;
-  margin-bottom: 100px;
+  margin-left: 30px;
+}
+.middle,
+footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
